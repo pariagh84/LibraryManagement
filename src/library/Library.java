@@ -5,9 +5,9 @@ import management.MemberManager;
 import management.TransactionManager;
 
 public class Library {
-    private BookManager bookManager;
-    private MemberManager memberManager;
-    private TransactionManager transactionManager;
+    private final BookManager bookManager;
+    private final MemberManager memberManager;
+    private final TransactionManager transactionManager;
 
     public Library() {
         this.memberManager = new MemberManager();
@@ -70,7 +70,7 @@ public class Library {
         return memberManager.getLastTransaction(memberId);
     }
 
-    public Transaction getTranansactionByIndex(int index) {
+    public Transaction getTransactionByIndex(int index) {
         return transactionManager.getTransactionByIndex(index);
     }
 }

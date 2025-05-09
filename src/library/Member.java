@@ -1,26 +1,35 @@
 package library;
 
+import datastructures.lists.CustomLinkedList;
+
 public class Member {
-    private String memberId;
-    private String name;
-    // TODO: Define a data structure to hold transactions of each member
+    private final String memberId;
+    private final String name;
+    private final CustomLinkedList<Transaction> transactions;
 
     public Member(String memberId, String name) {
         this.memberId = memberId;
         this.name = name;
-        // TODO: Initialize your data structure here
+        this.transactions = new CustomLinkedList<>();
     }
 
-    public String getMemberId() { return memberId; }
-    public String getName() { return name; }
+    public String getMemberId() {
+        return memberId;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void addTransaction(Transaction transaction) {
-        // TODO
+        transactions.addLast(transaction);
     }
 
     public Transaction getLastTransaction() {
-        // TODO
-        return null;
+        if (transactions.isEmpty()) {
+            return null;
+        }
+        return transactions.getLast();
     }
 
     @Override
